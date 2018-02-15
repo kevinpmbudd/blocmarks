@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <h1 class="text-center">All Blocmarks</h1>
+    <%= link_to "", new_topic_path,
+                    remote: true,
+                    title: 'New Topic',
+                    'data-toggle' => 'tooltip',
+                    class: "glyphicon glyphicon-plus new-topic-btn" %>
+    <div id="topic-form" style="display:none;"></div>
+    <div class="new-topic"></div>
+    <div class="topics">
+      <%= render @topics %>
+    </div>
+  </div>
+</div>

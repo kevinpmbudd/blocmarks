@@ -7,4 +7,6 @@ class User < ApplicationRecord
   validates :name,
             length: { minimum: 3, maximum: 100 },
             presence: true
+
+  has_many :topics, dependent: :destroy
 end

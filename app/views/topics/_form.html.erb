@@ -1,0 +1,22 @@
+<%= form_for @topic, remote: true do |f| %>
+  <%  if @topic.errors.any? %>
+    <div class="alert alert-danger">
+      <h4><%= pluralize(@topic.errors.count, "error") %>.</h4>
+      <ul>
+        <% @topic.errors.full_messages.each do |msg| %>
+        <li><%=  msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="row">
+    <div class="col-md-5">
+      <%= form_group_tag(@topic.errors[:title]) do %>
+        <%= f.text_field :title, class: 'form-control', placeholder: "Enter new topic title" %>
+      <% end %>
+    </div>
+    <div class="col-md-3">
+      <%= f.submit "Add", class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>

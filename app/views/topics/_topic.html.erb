@@ -1,0 +1,20 @@
+<div class="text-left">
+  <%= link_to "##{topic.title}", topic, class: 'lead' %>
+  <%= link_to topic, remote: true, method: :delete, data: { confirm: 'Are you sure?' } do %>
+    <button class="btn btn-xs pull-right">Delete <%= topic.title %></button>
+  <% end %>
+  <% topic.bookmarks.each_slice(4) do |bookmarks| %>
+    <div class="row">
+      <% bookmarks.each do |bookmark| %>
+        <div class="col-md-3">
+          <div class="thumbnail">
+            <%= image_tag "http://via.placeholder.com/150x150", class: 'media-object' %>
+            <div class="caption text-center">
+              <a href="#TODO">Like</a>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
