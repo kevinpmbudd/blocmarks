@@ -1,0 +1,7 @@
+<% bookmarks.each_slice(4) do |bookmarks_row| %>
+  <div class="row">
+    <% bookmarks_row.each do |bookmark| %>
+      <%= render partial: 'bookmarks/bookmark_thumbnail', locals: { bookmark: bookmark } %>
+    <% end %>
+  </div>
+<% end %>

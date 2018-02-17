@@ -1,0 +1,18 @@
+<div class="jumbotron text-center">
+  <div class="container">
+    <% unless @page.nil? %>
+      <%= image_tag(@page.images.best, class: "page-image") %>
+    <% end %>
+    <h3> <%= link_to bookmark.url, bookmark.url %> </h3>
+    <p class="lead text-muted"> <%= @page.best_description unless @page.nil? %></p>
+    <p><a href="#TODO">Like</a></p>
+    <p>
+      <%= link_to "", [bookmark.topic, bookmark],
+                  method: :delete,
+                  data: { confirm: 'Are you sure you want to delete this bookmark?' },
+                  'data-toggle' => 'popover',
+                  'data-content' => 'Delete bookmark',
+                  class: "glyphicon glyphicon-remove" %>
+    </p>
+  </div>
+</div>

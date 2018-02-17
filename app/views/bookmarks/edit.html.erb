@@ -1,0 +1,6 @@
+<div class="col-sm-6 col-sm-offset-3">
+  <div class="text-center">
+    <h1>Edit <%= @bookmark.url %></h1>
+  </div>
+  <%= render partial: 'edit_form', locals: { topic: @topic, bookmark: @bookmark } %>
+</div>

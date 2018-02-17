@@ -1,0 +1,2 @@
+$('.bookmarks_<%= @topic.id %>').html("<%= j (render partial: "bookmarks", locals: { topic: @topic, bookmarks: @topic.bookmarks }) %>");
+$('#bookmark-form').slideUp(350);

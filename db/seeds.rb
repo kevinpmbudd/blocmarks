@@ -31,7 +31,7 @@ topics = Topic.all
 24.times do
   Bookmark.create!(
     topic: topics.sample,
-    url: Faker::Internet.url
+    url: "http://google.com"
   )
 end
 
