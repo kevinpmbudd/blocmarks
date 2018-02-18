@@ -90,5 +90,5 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # Devise mailer setup
-  config.action_mailer.default_url_options = { host: 'evening-journey-93631.herokuapp.com', port: 3000 }
+  config.action_mailer.default_url_options = { host: 'evening-journey-93631.herokuapp.com' }
 end
