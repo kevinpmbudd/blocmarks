@@ -21,19 +21,22 @@ User.create!(
 users = User.all
 
 6.times do
-  Topic.create!(
-    user: users.sample,
+  user = users.sample
+
+  topic = Topic.create!(
+    user: user,
     title: Faker::Science.unique.element
   )
-end
-topics = Topic.all
 
-24.times do
-  Bookmark.create!(
-    topic: topics.sample,
-    url: "http://google.com"
-  )
+  4.times do
+    Bookmark.create!(
+      user: user,
+      topic: topic,
+      url: ["http://google.com", "http://amazon.com", "http://bloc.io", "http://rubyonrails.org"].sample
+    )
+  end
 end
+
 
 puts "#{User.count} users"
 puts "#{Topic.count} topics"

@@ -2,8 +2,6 @@ class IncomingController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:create]
 
   def create
-    puts "INCOMING PARAMS HERE: #{params}"
-
     @user = User.find_by_email( params[:sender] )
     @topic = Topic.find_by_title( params[:subject] )
     @url = params["body-plain"]
@@ -12,7 +10,7 @@ class IncomingController < ApplicationController
     # is in developer "sandbox" mode. Since new users are sent an email to confirm
     # account before they can activate account this operation will fail on the production
     # server. To test, first create a blocmarks user and then email bookmarks from
-    # the associated blocmark users' email. 
+    # the associated blocmark users' email.
     if @user.nil?
       @user = User.create!(name: params[:sender],
                              email: params[:sender],
@@ -25,6 +23,7 @@ class IncomingController < ApplicationController
     end
 
     @bookmark = @topic.bookmarks.build(url: @url)
+    @bookmark.user = @user 
 
     if @bookmark.save
       head 200

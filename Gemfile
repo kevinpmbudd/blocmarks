@@ -32,6 +32,10 @@ gem 'faker'
 
 gem 'metainspector'
 
+gem 'pundit'
+
+gem 'validate_url', '~> 1.0', '>= 1.0.2'
+
 group :development do
  # Use sqlite3 as the development database for Active Record
  gem 'sqlite3'

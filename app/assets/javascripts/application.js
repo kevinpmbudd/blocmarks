@@ -15,8 +15,7 @@
 //= require jquery
 //= require bootstrap
 //= require_tree .
-$(document).ready(function() {
-  $('.has-tooltip').tooltip();
+$(document).on('turbolinks:load', function() {
   $('[data-toggle="popover"]').popover({
       placement : 'top',
       trigger : 'hover'

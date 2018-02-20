@@ -6,6 +6,7 @@ RSpec.describe User, type: :model do
   let(:user_with_invalid_email) { build(:user, email: "") }
 
   it { should have_many(:topics) }
+  it { should have_many(:bookmarks) }
 
   it { should validate_presence_of(:name) }
   it { should validate_length_of(:name).is_at_least(3) }

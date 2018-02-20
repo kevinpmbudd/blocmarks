@@ -9,4 +9,6 @@ class User < ApplicationRecord
             presence: true
 
   has_many :topics, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
+
 end

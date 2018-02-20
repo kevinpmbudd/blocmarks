@@ -1,2 +1,9 @@
-$('.bookmarks_<%= @topic.id %>').html("<%= j (render partial: "bookmarks", locals: { topic: @topic, bookmarks: @topic.bookmarks }) %>");
-$('#bookmark-form').slideUp(350);
+$("ul.errors").html("")
+<% if @bookmark.errors.any? %>
+  <% @bookmark.errors.full_messages.each do |message| %>
+    $("ul.errors").append($("<li />").html("<%= message.html_safe %>"))
+  <% end %>
+<% else %>
+  $('.bookmarks_<%= @topic.id %>').html("<%= j (render partial: "bookmarks", locals: { topic: @topic, bookmarks: @topic.bookmarks }) %>");
+  $('#bookmark-form').slideUp(350);
+<% end %>
