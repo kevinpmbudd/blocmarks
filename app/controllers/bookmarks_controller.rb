@@ -18,13 +18,7 @@ class BookmarksController < ApplicationController
     @bookmark = @topic.bookmarks.build( bookmark_params )
     @bookmark.user = current_user
 
-    respond_to do |format|
-      if @bookmark.save
-        format.js
-      else
-        format.js { flash.now[:alert] = "There was an error creating the bookmark." }
-      end
-    end
+    @bookmark.save
   end
 
   def update
@@ -37,15 +31,10 @@ class BookmarksController < ApplicationController
   def destroy
     authorize @bookmark
 
-    @topics = Topic.all.order('updated_at DESC').includes(:bookmarks)
-
+    @bookmark.destroy
     respond_to do |format|
-      if @bookmark.destroy
-        format.html { redirect_to @topic }
-        format.js
-      else
-        format.html { flash.now[:alert] = "There was an error deleting the bookmark." }
-      end
+      format.html { redirect_to @topic }
+      format.js
     end
   end
 

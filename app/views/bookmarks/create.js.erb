@@ -4,6 +4,6 @@ $("ul.errors").html("")
     $("ul.errors").append($("<li />").html("<%= message.html_safe %>"))
   <% end %>
 <% else %>
-  $('.bookmarks_<%= @topic.id %>').html("<%= j (render partial: "bookmarks", locals: { topic: @topic, bookmarks: @topic.bookmarks }) %>");
+  $('#topic_<%= @topic.id %>_bookmarks').html("<%= j (render partial: "bookmarks", locals: { bookmarks: @topic.bookmarks }) %>");
   $('#bookmark-form').slideUp(350);
 <% end %>

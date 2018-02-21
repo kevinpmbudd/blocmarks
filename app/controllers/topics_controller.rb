@@ -3,7 +3,6 @@ class TopicsController < ApplicationController
   before_action :set_topic, only: [:show, :destroy]
   before_action :authenticate_user!
 
-
   def new
     @topic = Topic.new
   end

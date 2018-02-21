@@ -1,1 +1,1 @@
-$('.bookmarks_<%= @topic.id %>').html("<%= j (render partial: "bookmarks/bookmarks", locals: { bookmarks: @topic.bookmarks }) %>")
+$('#bookmark_<%= @bookmark.id %>').remove();

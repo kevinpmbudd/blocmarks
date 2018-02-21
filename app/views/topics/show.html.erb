@@ -8,8 +8,12 @@
                     class: "glyphicon glyphicon-plus new-bookmark-btn" %>
     <div id="bookmark-form" style="display:none;"></div>
 
-    <div class="bookmarks_<%= @topic.id %>">
-      <%= render partial: "bookmarks/bookmarks", locals: { bookmarks: @topic.bookmarks }%>
+    <div id="topic_<%= @topic.id %>_bookmarks">
+      <% if @topic.bookmarks.any? %>
+        <%= render partial: "bookmarks/bookmarks", locals: { bookmarks: @topic.bookmarks }%>
+      <% else %>
+        <p class="text-center text-muted"><%= @topic.title %> is currently empty</p>
+      <% end %>
     </div>
   </div>
 </div>

@@ -3,7 +3,9 @@
   <%= link_to topic, remote: true, method: :delete, data: { confirm: 'Are you sure you want to delete this topic?' } do %>
     <div class="glyphicon glyphicon-remove" data-toggle="popover" data-content="Delete topic"></div>
   <% end %>
-  <div class="bookmarks_<%= topic.id %>">
+  <% if topic.bookmarks.any? %>
     <%= render partial: "bookmarks/bookmarks", locals: { bookmarks: topic.bookmarks }%>
-  </div>
+  <% else %>
+    <p class="text-center text-muted"><%= topic.title %> is currently empty</p>
+  <% end %>
 </div>
