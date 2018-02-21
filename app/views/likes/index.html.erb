@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <h1 class="text-center">Users who liked <%= @bookmark.url %> in <%= @bookmark.topic.title %></h1>
+
+    <ul>
+      <% likes = @likes.where(bookmark: @bookmark.id) %>
+      <% likes.each do |like| %>
+        <li><%= like.user.name %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>

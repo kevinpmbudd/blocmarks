@@ -5,13 +5,13 @@
     <% end %>
     <h3> <%= link_to bookmark.url, bookmark.url %> </h3>
     <p class="lead text-muted"> <%= @page.best_description unless @page.nil? %></p>
-    <p><a href="#TODO">Like</a></p>
+    <%= render partial: 'likes/like', locals: { bookmark: bookmark } %>
     <p>
       <%= link_to "", [bookmark.topic, bookmark],
                   method: :delete,
                   data: { confirm: 'Are you sure you want to delete this bookmark?' },
                   'data-toggle' => 'popover',
-                  'data-content' => 'Delete bookmark',
+                  'data-content' => 'Delete',
                   class: "glyphicon glyphicon-remove" %>
     </p>
     <p>created by: <%= bookmark.user_id %></p>

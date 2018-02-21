@@ -36,8 +36,17 @@ users = User.all
     )
   end
 end
+bookmarks = Bookmark.all
+
+12.times do
+  Like.create!(
+    user: users.sample,
+    bookmark: bookmarks.sample
+  )
+end
 
 
 puts "#{User.count} users"
 puts "#{Topic.count} topics"
 puts "#{Bookmark.count} bookmarks"
+puts "#{Like.count} likes"

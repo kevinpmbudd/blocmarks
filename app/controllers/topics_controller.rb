@@ -18,7 +18,7 @@ class TopicsController < ApplicationController
   private
 
   def topics
-    @topics = Topic.all.order('updated_at DESC').includes(:bookmarks)
+    @topics = Topic.all.order('updated_at DESC').includes(bookmarks: [ :likes ] )
   end
 
   def set_topic
