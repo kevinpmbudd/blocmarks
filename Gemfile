@@ -36,6 +36,8 @@ gem 'pundit'
 
 gem 'validate_url', '~> 1.0', '>= 1.0.2'
 
+gem 'friendly_id', '~> 5.1.0'
+
 group :development do
  # Use sqlite3 as the development database for Active Record
  gem 'sqlite3'

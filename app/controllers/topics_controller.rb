@@ -22,7 +22,7 @@ class TopicsController < ApplicationController
   end
 
   def set_topic
-    @topic = Topic.find_by_id( params[:id] )
+    @topic = Topic.friendly.find( params[:id] )
   end
 
   def topic_params
