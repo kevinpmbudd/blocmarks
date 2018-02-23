@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   def show
     @user_bookmarks = Bookmark.where(user: current_user)
-    likes = Like.where(user: current_user)
-    @liked_bookmarks = likes.map do |like| like.bookmark end
+    @liked_bookmarks = Bookmark.joins(:likes).where(likes: { user_id: current_user.id } )
   end
 end
