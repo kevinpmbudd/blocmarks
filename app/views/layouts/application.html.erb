@@ -15,7 +15,8 @@
         <li><%= link_to "Blocmarks", root_path %></li>
         <% if user_signed_in? %>
           <li class="pull-right"><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-          <li class="pull-right"><%= link_to "#{current_user.name}", edit_user_registration_path %></li>
+          <li class="pull-right"><%= link_to "Account", edit_user_registration_path %></li>
+          <li class="pull-right"><%= link_to "Blocmarks & Likes", users_show_path %></li>
         <% else %>
           <li class="pull-right"><%= link_to "Sign In", new_user_session_path %></li>
           <li class="pull-right"><%= link_to "Sign Up", new_user_registration_path %></li>
